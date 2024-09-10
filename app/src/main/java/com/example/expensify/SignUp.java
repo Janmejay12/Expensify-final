@@ -86,7 +86,7 @@ public class SignUp extends AppCompatActivity {
                                     {
                                         Toast.makeText(SignUp.this, "Account created.",
                                                 Toast.LENGTH_SHORT).show();
-                                        intent = new Intent(SignUp.this,DashBoard.class);
+                                        intent = new Intent(SignUp.this,DashBoard2.class);
                                         startActivity(intent);
                                         finish();
                                     }
