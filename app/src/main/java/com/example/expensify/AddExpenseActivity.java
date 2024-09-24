@@ -465,7 +465,8 @@ public class AddExpenseActivity extends AppCompatActivity {
                 });
     }
 
-    private void createExpense() {
+    private void createExpense()
+    {
         FirebaseAuth auth = FirebaseAuth.getInstance();
         FirebaseUser user = auth.getCurrentUser();
 
@@ -488,10 +489,12 @@ public class AddExpenseActivity extends AppCompatActivity {
         }
 
         String expenseId = UUID.randomUUID().toString();
+        long currentTimeInMillis = Calendar.getInstance().getTimeInMillis();
+
         ExpenseModel expenseModel = new ExpenseModel(
                 expenseId, note, category, type,
                 Long.parseLong(amount),
-                Calendar.getInstance().getTimeInMillis(),
+                currentTimeInMillis,
                 uid
         );
 
@@ -524,11 +527,12 @@ public class AddExpenseActivity extends AppCompatActivity {
             binding.amount.setError("Empty");
             return;
         }
+        long time = expenseModel.getTime();
 
         ExpenseModel model = new ExpenseModel(
                 expenseId, note, category, type,
                 Long.parseLong(amount),
-                expenseModel.getTime(),
+                time,
                 FirebaseAuth.getInstance().getUid()
         );
 
