@@ -9,8 +9,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class ExpensesAdapter extends RecyclerView.Adapter <ExpensesAdapter.MyViewHolder> {
 
@@ -47,6 +50,10 @@ public class ExpensesAdapter extends RecyclerView.Adapter <ExpensesAdapter.MyVie
         holder.note.setText(expenseModel.getNote());
         holder.category.setText(expenseModel.getCategory());
         holder.amount.setText(String.valueOf(expenseModel.getAmount()));
+
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm", Locale.getDefault());
+        String formattedDate = dateFormat.format(new Date(expenseModel.getTime()));
+        holder.date.setText(formattedDate);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
