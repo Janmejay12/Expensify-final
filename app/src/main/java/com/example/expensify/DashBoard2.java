@@ -327,6 +327,13 @@ public class DashBoard2 extends AppCompatActivity implements OnItemsClick {
             startActivity(intent);
             finish();
         });
+
+        binding.calender.setOnClickListener(view -> {
+
+            Intent intent = new Intent(DashBoard2.this, MonthlyExpenseActivity.class);
+            startActivity(intent);
+
+        });
     }
 
     @Override
