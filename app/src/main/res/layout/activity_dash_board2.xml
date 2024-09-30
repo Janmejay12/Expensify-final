@@ -1,103 +1,30 @@
-<?xml version="1.0" encoding="utf-8"?>
+<!-- activity_main.xml -->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
-    android:padding="20dp"
     android:layout_height="match_parent"
-    tools:context=".DashBoard2">
+    tools:context=".MainActivity">
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <androidx.cardview.widget.CardView
-            android:layout_margin="5dp"
-            android:layout_width="match_parent"
-            android:layout_height="300dp">
-            <com.github.mikephil.charting.charts.PieChart
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/pieChart"/>
-        </androidx.cardview.widget.CardView>
-<!--        <androidx.recyclerview.widget.RecyclerView-->
-<!--            android:id="@+id/recycler"-->
-<!--            android:layout_marginTop="10dp"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"/>-->
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:layout_marginTop="10dp"/>
-    </LinearLayout>
-    <RelativeLayout
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:weightSum="2"
-        android:layout_above="@+id/linear3">
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>
 
-        <Button
-            android:id="@+id/calender"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:text="Cal"
-            android:backgroundTint="@color/black"
-            android:textColor="@android:color/white"
-            android:elevation="4dp"
-            android:paddingHorizontal="20dp"
-            android:paddingVertical="10dp"/>
-
-        <Button
-            android:id="@+id/logout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:text="logout"
-            android:backgroundTint="@color/black"
-            android:textColor="@android:color/white"
-            android:elevation="4dp"
-            android:paddingHorizontal="20dp"
-            android:paddingVertical="10dp"/>
-    </RelativeLayout>
-
-    <LinearLayout
-        android:id="@+id/linear3"
-        android:weightSum="2"
-        android:layout_alignParentBottom="true"
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPager"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:layout_below="@id/appBarLayout"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
 
-        <TextView
-            android:id="@+id/addIncome"
-            android:background="@color/black"
-            android:text="Add Income"
-            android:layout_weight="1"
-            android:textColor="@color/white"
-            android:gravity="center"
-            android:padding="15dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginBottom="25dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-        <TextView
-            android:id="@+id/addExpense"
-            android:background="@color/black"
-            android:gravity="center"
-            android:text="Add Expense"
-            android:textColor="@color/white"
-            android:layout_weight="1"
-            android:layout_marginLeft="10dp"
-            android:padding="15dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-    </LinearLayout>
-
-
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        app:tabGravity="fill"
+        app:tabMode="fixed" />
 
 </RelativeLayout>
-

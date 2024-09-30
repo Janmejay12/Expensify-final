@@ -3,60 +3,96 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:contentPadding="10dp"
-    android:layout_margin="5dp">
+    android:layout_margin="8dp"
+    app:cardElevation="4dp"
+    app:cardCornerRadius="12dp"
+    android:foreground="?android:attr/selectableItemBackground"
+    android:background="@android:color/white">
+
+    <!-- Root Layout for the Card -->
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <LinearLayout
-            android:layout_centerVertical="true"
-            android:layout_alignParentLeft="true"
-            android:orientation="vertical"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-            <TextView
-                android:id="@+id/note"
-                android:textColor="@color/black"
-                android:text="Note"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="18sp"/>
+        android:layout_height="wrap_content"
+        android:background="#444b57"
+        android:padding="12dp">
 
-            <TextView
-                android:id="@+id/category"
-                android:text="category"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="16sp"/>
-
-            <TextView
-                android:id="@+id/date"
-                android:text="date"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
+        <!-- Left Section: Icon and Vertical Info (Note, Category, Date) -->
         <LinearLayout
-            android:layout_centerVertical="true"
-            android:layout_alignParentRight="true"
+            android:id="@+id/leftSection"
             android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_height="wrap_content">
+            android:layout_alignParentLeft="true">
+
+            <!-- Icon for Expense Type -->
+
+
+            <!-- Vertical Layout for Text Details (Note, Category, Date) -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginLeft="20dp">
+
+                <!-- Expense Note (Title or Description) -->
+                <TextView
+                    android:id="@+id/note"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Expense Note"
+                    android:textColor="@android:color/holo_blue_dark"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <!-- Expense Category -->
+                <TextView
+                    android:id="@+id/category"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Category"
+                    android:textSize="14sp"
+                    android:textColor="@android:color/white"
+                    android:layout_marginTop="2dp" />
+
+                <!-- Expense Date -->
+                <TextView
+                    android:id="@+id/date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Date"
+                    android:textSize="12sp"
+                    android:textColor="@android:color/white"
+                    android:layout_marginTop="2dp" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Right Section: Amount and Currency -->
+        <LinearLayout
+            android:id="@+id/rightSection"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="₹ "
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#cc1424"
+                android:layout_marginLeft="4dp" />
             <TextView
                 android:id="@+id/amount"
-                android:textStyle="bold"
-                android:textSize="18sp"
-                android:text="100"
-                android:textColor="@color/black"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-            <TextView
-                android:textStyle="bold"
+                android:layout_height="wrap_content"
+                android:text="1000"
                 android:textSize="18sp"
-                android:text="  INR"
-                android:textColor="@color/black"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:textStyle="bold"
+                android:textColor="#cc1424" />
         </LinearLayout>
-    </RelativeLayout>
 
+    </RelativeLayout>
 </androidx.cardview.widget.CardView>

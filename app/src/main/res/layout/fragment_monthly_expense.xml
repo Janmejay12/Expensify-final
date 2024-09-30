@@ -1,0 +1,44 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#35373b"
+    android:padding="16dp">
+
+    <!-- Title Text -->
+    <TextView
+        android:id="@+id/monthlyExpenseTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Monthly Expenses"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:layout_gravity="center_horizontal"
+        android:padding="16dp" />
+
+    <!-- FrameLayout to make the CalendarView round -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/rounded_calendar_background">
+
+        <!-- CalendarView with custom date and weekday text appearance -->
+        <CalendarView
+            android:id="@+id/calendarView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:firstDayOfWeek="1"
+            android:background="#444b57"
+            android:dateTextAppearance="@style/CalendarDateTextAppearance"
+            android:weekDayTextAppearance="@style/CalendarWeekDayTextAppearance"
+            android:elevation="4dp" />
+
+    </FrameLayout>
+
+    <!-- Divider to visually separate the calendar from the button -->
+
+</LinearLayout>

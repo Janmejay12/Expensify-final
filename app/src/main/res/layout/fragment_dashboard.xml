@@ -1,0 +1,119 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:padding="20dp"
+    android:layout_height="match_parent"
+    android:background="#35373b"
+    tools:context=".DashBoard2">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- CardView for PieChart and Income, Expense, Budget TextViews -->
+        <androidx.cardview.widget.CardView
+            android:layout_margin="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardElevation="6dp"
+            app:cardCornerRadius="12dp">
+
+            <!-- Vertical Layout for PieChart and TextViews -->
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#444b57"
+                android:padding="8dp">
+
+                <!-- Pie Chart -->
+                <com.github.mikephil.charting.charts.PieChart
+                    android:id="@+id/pieChart"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"/>
+
+                <!-- Horizontal Layout for Income, Expense, and Budget -->
+                <LinearLayout
+                    android:layout_width="343dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <!-- Total Income -->
+                    <TextView
+                        android:id="@+id/ti"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Total Income:"
+                        android:textColor="@android:color/holo_blue_dark"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <!-- Total Expense -->
+                    <TextView
+                        android:id="@+id/te"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Total Expense:"
+                        android:textColor="@android:color/holo_blue_dark"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- RecyclerView for Expense Items -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="10dp"/>
+
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/addBtn">
+
+
+
+        <Button
+            android:id="@+id/logout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="logout"
+            android:backgroundTint="@color/black"
+            android:textColor="@android:color/white"
+            android:elevation="4dp"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="10dp"/>
+    </RelativeLayout>
+
+
+
+    <!-- Floating Action Button for Add Icon -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/addBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:background="@color/red"
+        android:layout_marginBottom="40dp"
+        android:src="@drawable/add2"
+        android:contentDescription="Add" />
+
+</RelativeLayout>
