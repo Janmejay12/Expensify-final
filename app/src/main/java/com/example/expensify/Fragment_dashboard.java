@@ -20,6 +20,7 @@ import com.github.mikephil.charting.data.PieEntry;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -101,6 +102,7 @@ public class Fragment_dashboard extends Fragment implements OnItemsClick {
                 .collection("users")
                 .document(uid)
                 .collection("expenses")
+                .orderBy("time", Query.Direction.DESCENDING) // Order by 'time' field in descending order
                 .get()
                 .addOnSuccessListener(queryDocumentSnapshots -> {
                     List<ExpenseModel> list = new ArrayList<>();

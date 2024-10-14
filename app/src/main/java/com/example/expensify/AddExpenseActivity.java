@@ -7,6 +7,8 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -18,7 +20,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 import java.util.UUID;
 
 public class AddExpenseActivity extends AppCompatActivity {
@@ -26,6 +30,7 @@ public class AddExpenseActivity extends AppCompatActivity {
     ActivityAddExpenseBinding binding;
     private String type;
     private ExpenseModel expenseModel;
+    private Spinner categorySpinner; // Add Spinner for categories
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +39,29 @@ public class AddExpenseActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(binding.getRoot());
 
-        // Retrieving intent data
+        // Initialize the Spinner
+        categorySpinner = binding.categorySpinner; // Assume categorySpinner is used in XML now
+
+//        // Create an ArrayAdapter using the string array and a default spinner layout
+//        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+//                R.array.category_array, android.R.layout.simple_spinner_item);
+//        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//        categorySpinner.setAdapter(adapter);
+
+        List<Category> categories = new ArrayList<>();
+        categories.add(new Category("Food", R.drawable.icon1));
+        categories.add(new Category("Transport", R.drawable.icon2));
+        categories.add(new Category("Household", R.drawable.icon3));
+        categories.add(new Category("Cosmetics", R.drawable.icon4));
+        categories.add(new Category("Cloth", R.drawable.icon5));
+        categories.add(new Category("Education", R.drawable.icon6));
+        categories.add(new Category("Health", R.drawable.icon7));
+        categories.add(new Category("Other", R.drawable.icon8));
+
+        CategoryAdapter categoryAdapter = new CategoryAdapter(this, categories);
+        binding.categorySpinner.setAdapter(categoryAdapter);
+
+        // Retrieve intent data
         type = getIntent().getStringExtra("type");
         expenseModel = (ExpenseModel) getIntent().getSerializableExtra("model");
 
@@ -42,8 +69,16 @@ public class AddExpenseActivity extends AppCompatActivity {
         if (expenseModel != null) {
             type = expenseModel.getType();
             binding.amount.setText(String.valueOf(expenseModel.getAmount()));
-            binding.category.setText(expenseModel.getCategory());
             binding.note.setText(expenseModel.getNote());
+
+            // Set Spinner selection based on the passed category
+            for (int i = 0; i < categorySpinner.getCount(); i++) {
+                Category cat = (Category) categorySpinner.getItemAtPosition(i);
+                if (cat.getName().equals(expenseModel.getCategory())) {
+                    categorySpinner.setSelection(i);
+                    break;
+                }
+            }
 
             if (type.equals("Income")) {
                 binding.incomeRadio.setChecked(true);
@@ -55,6 +90,8 @@ public class AddExpenseActivity extends AppCompatActivity {
         // Radio button listeners
         binding.incomeRadio.setOnClickListener(view -> type = "Income");
         binding.expenseRadio.setOnClickListener(view -> type = "Expense");
+
+
     }
 
     @Override
@@ -110,8 +147,7 @@ public class AddExpenseActivity extends AppCompatActivity {
                 });
     }
 
-    private void createExpense()
-    {
+    private void createExpense() {
         FirebaseAuth auth = FirebaseAuth.getInstance();
         FirebaseUser user = auth.getCurrentUser();
 
@@ -123,7 +159,7 @@ public class AddExpenseActivity extends AppCompatActivity {
         String uid = user.getUid();
         String amount = binding.amount.getText().toString();
         String note = binding.note.getText().toString();
-        String category = binding.category.getText().toString();
+        String category = categorySpinner.getSelectedItem().toString(); // Get selected category from Spinner
 
         boolean incomeChecked = binding.incomeRadio.isChecked();
         String type = incomeChecked ? "Income" : "Expense";
@@ -163,7 +199,7 @@ public class AddExpenseActivity extends AppCompatActivity {
         String expenseId = expenseModel.getExpenseId();
         String amount = binding.amount.getText().toString();
         String note = binding.note.getText().toString();
-        String category = binding.category.getText().toString();
+        String category = categorySpinner.getSelectedItem().toString(); // Get selected category from Spinner
 
         boolean incomeChecked = binding.incomeRadio.isChecked();
         type = incomeChecked ? "Income" : "Expense";

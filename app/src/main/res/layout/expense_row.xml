@@ -25,7 +25,13 @@
             android:layout_alignParentLeft="true">
 
             <!-- Icon for Expense Type -->
-
+            <ImageView
+                android:id="@+id/categoryIcon"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center_vertical"
+                android:contentDescription="Category Icon"
+                android:src="@drawable/icon1" />
 
             <!-- Vertical Layout for Text Details (Note, Category, Date) -->
             <LinearLayout

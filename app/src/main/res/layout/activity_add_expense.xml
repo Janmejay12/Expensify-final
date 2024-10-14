@@ -6,8 +6,7 @@
     android:layout_height="match_parent"
     android:background="#35373b"
     android:padding="16dp"
-    tools:context=".AddExpenseActivity"
-    tools:layout_editor_absoluteY="89dp">
+    tools:context=".AddExpenseActivity">
 
     <!-- Card containing all the input fields -->
     <com.google.android.material.card.MaterialCardView
@@ -35,15 +34,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Amount"
-                android:textColorHint="@color/black"
-
+                android:textColorHint="@color/white"
                 app:boxStrokeColor="@color/primaryColor">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/amount"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Enter amount"
                     android:inputType="number"
                     android:textColorHint="@color/black" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -54,7 +51,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:text="Select type"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textStyle="bold" />
 
             <RadioGroup
@@ -62,7 +59,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-
                 android:orientation="horizontal">
 
                 <RadioButton
@@ -72,15 +68,15 @@
                     android:buttonTint="@color/black"
                     android:paddingEnd="20dp"
                     android:text="Income"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/white" />
 
                 <RadioButton
                     android:id="@+id/expenseRadio"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:buttonTint="@color/black"
+                    android:buttonTint="@color/white"
                     android:text="Expense"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/white" />
             </RadioGroup>
 
             <!-- Note Input -->
@@ -88,38 +84,176 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-
                 android:hint="Note"
-                android:textColorHint="@color/black"
+                android:textColorHint="@color/white"
                 app:boxStrokeColor="@color/primaryColor">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/note"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Add a note (optional)"
                     android:textColorHint="@color/black" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <!-- Category Input -->
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                android:hint="Category"
-                android:textColorHint="@color/black"
-                app:boxStrokeColor="@color/primaryColor">
+                android:text="Category"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/category"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Enter category"
-                    android:textColorHint="@color/black" />
-            </com.google.android.material.textfield.TextInputLayout>
+            <Spinner
+                android:id="@+id/categorySpinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:entries="@array/category_array"
+                android:spinnerMode="dropdown" />
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
 
     <!-- Add Expense Button -->
-
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+
+
+
+
+
+    <!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--    xmlns:tools="http://schemas.android.com/tools"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent"-->
+<!--    android:background="#35373b"-->
+<!--    android:padding="16dp"-->
+<!--    tools:context=".AddExpenseActivity"-->
+<!--    tools:layout_editor_absoluteY="89dp">-->
+
+<!--    &lt;!&ndash; Card containing all the input fields &ndash;&gt;-->
+<!--    <com.google.android.material.card.MaterialCardView-->
+<!--        android:id="@+id/materialCardView"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_margin="10dp"-->
+<!--        app:cardCornerRadius="12dp"-->
+<!--        app:cardElevation="6dp"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent">-->
+
+<!--        <LinearLayout-->
+<!--            android:id="@+id/linear_"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:background="#444b57"-->
+<!--            android:orientation="vertical"-->
+<!--            android:padding="16dp">-->
+
+<!--            &lt;!&ndash; Amount Input &ndash;&gt;-->
+<!--            <com.google.android.material.textfield.TextInputLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:hint="Amount"-->
+<!--                android:textColorHint="@color/white"-->
+
+<!--                app:boxStrokeColor="@color/primaryColor">-->
+
+<!--                <com.google.android.material.textfield.TextInputEditText-->
+<!--                    android:id="@+id/amount"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:inputType="number"-->
+<!--                    android:textColorHint="@color/black" />-->
+<!--            </com.google.android.material.textfield.TextInputLayout>-->
+
+<!--            &lt;!&ndash; Type Selector (Income/Expense) &ndash;&gt;-->
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="12dp"-->
+<!--                android:text="Select type"-->
+<!--                android:textColor="@color/white"-->
+<!--                android:textStyle="bold" />-->
+
+<!--            <RadioGroup-->
+<!--                android:id="@+id/typeRadioGroup"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="8dp"-->
+
+<!--                android:orientation="horizontal">-->
+
+<!--                <RadioButton-->
+<!--                    android:id="@+id/incomeRadio"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:buttonTint="@color/black"-->
+<!--                    android:paddingEnd="20dp"-->
+<!--                    android:text="Income"-->
+<!--                    android:textColor="@color/white" />-->
+
+<!--                <RadioButton-->
+<!--                    android:id="@+id/expenseRadio"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:buttonTint="@color/white"-->
+<!--                    android:text="Expense"-->
+<!--                    android:textColor="@color/white" />-->
+<!--            </RadioGroup>-->
+
+<!--            &lt;!&ndash; Note Input &ndash;&gt;-->
+<!--            <com.google.android.material.textfield.TextInputLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="12dp"-->
+
+<!--                android:hint="Note"-->
+<!--                android:textColorHint="@color/white"-->
+<!--                app:boxStrokeColor="@color/primaryColor">-->
+
+<!--                <com.google.android.material.textfield.TextInputEditText-->
+<!--                    android:id="@+id/note"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:textColorHint="@color/black" />-->
+<!--            </com.google.android.material.textfield.TextInputLayout>-->
+
+<!--            &lt;!&ndash; Category Input &ndash;&gt;-->
+<!--&lt;!&ndash;            <com.google.android.material.textfield.TextInputLayout&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_marginTop="12dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:hint="Category"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:textColorHint="@color/white"&ndash;&gt;-->
+<!--&lt;!&ndash;                app:boxStrokeColor="@color/primaryColor">&ndash;&gt;-->
+
+<!--&lt;!&ndash;                <com.google.android.material.textfield.TextInputEditText&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:id="@+id/category"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:textColorHint="@color/black" />&ndash;&gt;-->
+<!--&lt;!&ndash;            </com.google.android.material.textfield.TextInputLayout>&ndash;&gt;-->
+
+<!--            <Spinner-->
+<!--                android:id="@+id/categorySpinner"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:entries="@array/category_array"-->
+<!--                android:spinnerMode="dropdown" />-->
+<!--        </LinearLayout>-->
+<!--    </com.google.android.material.card.MaterialCardView>-->
+
+<!--    &lt;!&ndash; Add Expense Button &ndash;&gt;-->
+
+<!--</androidx.constraintlayout.widget.ConstraintLayout>-->
+
+
