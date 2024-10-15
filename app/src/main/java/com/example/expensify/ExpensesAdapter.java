@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -55,6 +56,11 @@ public class ExpensesAdapter extends RecyclerView.Adapter <ExpensesAdapter.MyVie
         String formattedDate = dateFormat.format(new Date(expenseModel.getTime()));
         holder.date.setText(formattedDate);
 
+        // Set the category icon based on the category
+        int iconResId = getCategoryIcon(expenseModel.getCategory());
+        holder.categoryIcon.setImageResource(iconResId);
+
+
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -69,16 +75,43 @@ public class ExpensesAdapter extends RecyclerView.Adapter <ExpensesAdapter.MyVie
         return expenseModelList.size();
     }
 
-    public class MyViewHolder extends RecyclerView.ViewHolder{
+    public class MyViewHolder extends RecyclerView.ViewHolder
+    {
 
         private TextView note,category,amount,date;
+        private ImageView categoryIcon;
 
-        public MyViewHolder(@NonNull View itemView){
+        public MyViewHolder(@NonNull View itemView)
+        {
             super(itemView);
             note = itemView.findViewById(R.id.note);
             category = itemView.findViewById(R.id.category);
             amount = itemView.findViewById(R.id.amount);
             date = itemView.findViewById(R.id.date);
+            categoryIcon = itemView.findViewById(R.id.categoryIcon);  // Reference to category icon
+        }
+    }
+    private int getCategoryIcon(String category) {
+        switch (category) {
+            case "Food":
+                return R.drawable.icon1;
+            case "Transport":
+                return R.drawable.icon2;
+            case "Household":
+                return R.drawable.icon3;
+            case "Cosmetics":
+                return R.drawable.icon4;
+            case "Cloth":
+                return R.drawable.icon5;
+            case "Education":
+                return R.drawable.icon6;
+            case "Health":
+                return R.drawable.icon7;
+            case "Other":
+                return R.drawable.icon8;
+
+            default:
+                return R.drawable.icon1; // Default icon if category doesn't match
         }
     }
 }
