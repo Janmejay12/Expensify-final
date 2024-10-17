@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+   >
+
+    <TextView
+        android:id="@+id/contactUsTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Contact Us"
+        android:textSize="24sp"
+        android:textColor="@color/colorPrimary"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="16dp" />
+
+    <TextView
+        android:id="@+id/companyContactTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Phone No: +1-234-567-8901\n\nEmail: metaofficial.com"
+        android:textSize="16sp"
+        android:textColor="@android:color/black"
+        android:layout_below="@id/addressTextView"
+        android:layout_marginBottom="16dp" />
+
+    <TextView
+        android:id="@+id/socialMediaTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Follow Us On:"
+        android:textSize="18sp"
+        android:textColor="@android:color/black"
+        android:layout_below="@id/companyContactTextView"
+        android:layout_marginBottom="8dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/socialMediaTextView"
+        android:gravity="center">
+
+        <ImageButton
+            android:id="@+id/instagramButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/instagram2"
+        android:contentDescription="Instagram"
+        android:background="?attr/selectableItemBackground" />
+
+        <ImageButton
+            android:id="@+id/twitterButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/twitter"
+        android:contentDescription="Twitter"
+        android:background="?attr/selectableItemBackground"
+        android:layout_marginStart="16dp"/>
+
+        <ImageButton
+            android:id="@+id/facebookButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/facebook"
+        android:contentDescription="Facebook"
+        android:background="?attr/selectableItemBackground"
+        android:layout_marginStart="16dp"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/addressTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Address: 308 Negro Arroyo lane, Albuquerque, USA"
+        android:textSize="16sp"
+        android:textColor="@android:color/black"
+        android:layout_below="@id/contactUsTextView"
+        android:layout_marginTop="16dp" />
+
+</RelativeLayout>

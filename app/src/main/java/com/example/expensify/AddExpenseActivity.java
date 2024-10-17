@@ -42,21 +42,16 @@ public class AddExpenseActivity extends AppCompatActivity {
         // Initialize the Spinner
         categorySpinner = binding.categorySpinner; // Assume categorySpinner is used in XML now
 
-//        // Create an ArrayAdapter using the string array and a default spinner layout
-//        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-//                R.array.category_array, android.R.layout.simple_spinner_item);
-//        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//        categorySpinner.setAdapter(adapter);
 
         List<Category> categories = new ArrayList<>();
-        categories.add(new Category("Food", R.drawable.icon1));
-        categories.add(new Category("Transport", R.drawable.icon2));
-        categories.add(new Category("Household", R.drawable.icon3));
-        categories.add(new Category("Cosmetics", R.drawable.icon4));
-        categories.add(new Category("Cloth", R.drawable.icon5));
-        categories.add(new Category("Education", R.drawable.icon6));
-        categories.add(new Category("Health", R.drawable.icon7));
-        categories.add(new Category("Other", R.drawable.icon8));
+        categories.add(new Category("Food", R.drawable.fastfood));
+        categories.add(new Category("Transport", R.drawable.taxi_2401174));
+        categories.add(new Category("Household", R.drawable.dinningtable));
+        categories.add(new Category("Cosmetics", R.drawable.cosmetics_3163203));
+        categories.add(new Category("Cloth", R.drawable.clotheshanger));
+        categories.add(new Category("Education", R.drawable.books_3771417));
+        categories.add(new Category("Health", R.drawable.medicine_994920));
+        categories.add(new Category("Other", R.drawable.menu_15917867));
 
         CategoryAdapter categoryAdapter = new CategoryAdapter(this, categories);
         binding.categorySpinner.setAdapter(categoryAdapter);

@@ -58,13 +58,6 @@ public class Fragment_dashboard extends Fragment implements OnItemsClick {
             intent.removeExtra("model"); // Clear any previously set model
             startActivity(intent);
         });
-
-        binding.logout.setOnClickListener(view13 -> {
-            FirebaseAuth.getInstance().signOut();
-            Intent intent = new Intent(requireActivity(), MainActivity.class);
-            startActivity(intent);
-            requireActivity().finish();
-        });
     }
 
     @Override
@@ -128,7 +121,12 @@ public class Fragment_dashboard extends Fragment implements OnItemsClick {
     }
 
     // Set up the Pie chart graph
+    // Set up the Pie chart graph
     private void setUpGraph(List<ExpenseModel> list) {
+        if (!isAdded()) {
+            return; // Ensure the fragment is attached to its activity
+        }
+
         List<PieEntry> entries = new ArrayList<>();
 
         long totalIncome = 0;
@@ -152,12 +150,18 @@ public class Fragment_dashboard extends Fragment implements OnItemsClick {
         }
 
         PieDataSet dataSet = new PieDataSet(entries, "Income vs Expense");
-        dataSet.setColors(new int[]{R.color.yellow, R.color.red}, requireActivity());
+
+        // Ensure the activity is accessible
+        if (isAdded()) {
+            dataSet.setColors(new int[]{R.color.yellow, R.color.red}, requireActivity());
+        }
+
         PieData data = new PieData(dataSet);
 
         binding.pieChart.setData(data);
         binding.pieChart.invalidate();  // Refresh the chart
     }
+
 
     @Override
     public void onClick(ExpenseModel expenseModel) {

@@ -6,7 +6,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/loginbackground"
+
     tools:context=".MainActivity">
 
     <!-- Heading Text -->
@@ -15,7 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Login Now"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="45dp"
         android:textStyle="bold"
         android:layout_marginTop="50dp"
@@ -29,11 +29,11 @@
         android:layout_below="@id/heading"
         android:layout_margin="15dp"
         android:inputType="textEmailAddress"
-        android:textColorHint="@color/white"
+        android:textColorHint="@color/black"
         android:hint="Enter Email:"
         android:padding="20dp"
         android:textSize="20dp"
-        android:background="#30ffffff"
+        android:background="#f2f3f7"
         android:drawableLeft="@drawable/email"
         android:drawablePadding="15dp" />
 
@@ -45,11 +45,11 @@
         android:layout_below="@id/email"
         android:layout_margin="15dp"
         android:inputType="textPassword"
-        android:textColorHint="@color/white"
+        android:textColorHint="@color/black"
         android:hint="Enter Password:"
         android:padding="20dp"
         android:textSize="20dp"
-        android:background="#25ffffff"
+        android:background="#f2f3f7"
         android:drawableLeft="@drawable/password"
         android:drawablePadding="15dp" />
 
@@ -76,7 +76,7 @@
         android:layout_marginStart="25dp"
         android:layout_marginTop="28dp"
         android:text="To create a new account,"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="22dp" />
 
     <!-- Sign Up Link -->
@@ -88,7 +88,7 @@
         android:layout_toEndOf="@id/textsignin1"
         android:layout_marginEnd="30dp"
         android:text=" Sign Up. "
-        android:textColor="#b7cf34"
+        android:textColor="@color/dark_blue"
         android:textSize="22dp" />
 
 </RelativeLayout>

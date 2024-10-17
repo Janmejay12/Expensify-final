@@ -94,24 +94,24 @@ public class ExpensesAdapter extends RecyclerView.Adapter <ExpensesAdapter.MyVie
     private int getCategoryIcon(String category) {
         switch (category) {
             case "Food":
-                return R.drawable.icon1;
+                return R.drawable.fastfood;
             case "Transport":
-                return R.drawable.icon2;
+                return R.drawable.taxi_2401174;
             case "Household":
-                return R.drawable.icon3;
+                return R.drawable.dinningtable;
             case "Cosmetics":
-                return R.drawable.icon4;
+                return R.drawable.cosmetics_3163203;
             case "Cloth":
-                return R.drawable.icon5;
+                return R.drawable.clotheshanger;
             case "Education":
-                return R.drawable.icon6;
+                return R.drawable.books_3771417;
             case "Health":
-                return R.drawable.icon7;
+                return R.drawable.medicine_994920;
             case "Other":
-                return R.drawable.icon8;
+                return R.drawable.menu_15917867;
 
             default:
-                return R.drawable.icon1; // Default icon if category doesn't match
+                return R.drawable.fastfood; // Default icon if category doesn't match
         }
     }
 }

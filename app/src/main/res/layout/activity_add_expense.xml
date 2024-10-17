@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#35373b"
+
     android:padding="16dp"
     tools:context=".AddExpenseActivity">
 
@@ -25,7 +25,7 @@
             android:id="@+id/linear_"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#444b57"
+            android:background="#f2f3f7"
             android:orientation="vertical"
             android:padding="16dp">
 
@@ -34,7 +34,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Amount"
-                android:textColorHint="@color/white"
+                android:textColorHint="@color/black"
                 app:boxStrokeColor="@color/primaryColor">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -51,7 +51,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:text="Select type"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:textStyle="bold" />
 
             <RadioGroup
@@ -68,7 +68,7 @@
                     android:buttonTint="@color/black"
                     android:paddingEnd="20dp"
                     android:text="Income"
-                    android:textColor="@color/white" />
+                    android:textColor="@color/black" />
 
                 <RadioButton
                     android:id="@+id/expenseRadio"
@@ -76,7 +76,7 @@
                     android:layout_height="wrap_content"
                     android:buttonTint="@color/white"
                     android:text="Expense"
-                    android:textColor="@color/white" />
+                    android:textColor="@color/black" />
             </RadioGroup>
 
             <!-- Note Input -->
@@ -85,7 +85,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:hint="Note"
-                android:textColorHint="@color/white"
+                android:textColorHint="@color/black"
                 app:boxStrokeColor="@color/primaryColor">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -101,7 +101,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:text="Category"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:textStyle="bold" />
 
             <Spinner

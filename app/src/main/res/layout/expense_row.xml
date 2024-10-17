@@ -13,7 +13,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#444b57"
+        android:background="#f2f3f7"
         android:padding="12dp">
 
         <!-- Left Section: Icon and Vertical Info (Note, Category, Date) -->
@@ -57,7 +57,7 @@
                     android:layout_height="wrap_content"
                     android:text="Category"
                     android:textSize="14sp"
-                    android:textColor="@android:color/white"
+                    android:textColor="@android:color/black"
                     android:layout_marginTop="2dp" />
 
                 <!-- Expense Date -->
@@ -67,7 +67,7 @@
                     android:layout_height="wrap_content"
                     android:text="Date"
                     android:textSize="12sp"
-                    android:textColor="@android:color/white"
+                    android:textColor="@android:color/black"
                     android:layout_marginTop="2dp" />
 
             </LinearLayout>
