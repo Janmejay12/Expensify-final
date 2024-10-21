@@ -16,6 +16,9 @@
         android:theme="@style/Theme.Expensify"
         tools:targetApi="31">
         <activity
+            android:name=".CategoryExpenseActivity"
+            android:exported="false" />
+        <activity
             android:name=".ContactUs"
             android:exported="false" />
         <activity
