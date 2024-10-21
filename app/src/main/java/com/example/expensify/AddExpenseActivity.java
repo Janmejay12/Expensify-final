@@ -3,11 +3,9 @@ package com.example.expensify;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -30,7 +28,8 @@ public class AddExpenseActivity extends AppCompatActivity {
     ActivityAddExpenseBinding binding;
     private String type;
     private ExpenseModel expenseModel;
-    private Spinner categorySpinner; // Add Spinner for categories
+    private Spinner categorySpinner;
+    private Button setBtn, deleteBtn; // Add buttons
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,19 +38,27 @@ public class AddExpenseActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(binding.getRoot());
 
-        // Initialize the Spinner
-        categorySpinner = binding.categorySpinner; // Assume categorySpinner is used in XML now
+        // Hide the Action Bar
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().hide();
+        }
 
+        // Initialize the Spinner
+        categorySpinner = binding.categorySpinner;
+
+        // Initialize buttons
+        setBtn = findViewById(R.id.setBtn);
+        deleteBtn = findViewById(R.id.deleteBtn);
 
         List<Category> categories = new ArrayList<>();
-        categories.add(new Category("Food", R.drawable.fastfood));
-        categories.add(new Category("Transport", R.drawable.taxi_2401174));
-        categories.add(new Category("Household", R.drawable.dinningtable));
-        categories.add(new Category("Cosmetics", R.drawable.cosmetics_3163203));
-        categories.add(new Category("Cloth", R.drawable.clotheshanger));
-        categories.add(new Category("Education", R.drawable.books_3771417));
-        categories.add(new Category("Health", R.drawable.medicine_994920));
-        categories.add(new Category("Other", R.drawable.menu_15917867));
+        categories.add(new Category("Food", R.drawable.icon1));
+        categories.add(new Category("Transport", R.drawable.icon2));
+        categories.add(new Category("Household", R.drawable.icon3));
+        categories.add(new Category("Cosmetics", R.drawable.icon4));
+        categories.add(new Category("Cloth", R.drawable.icon5));
+        categories.add(new Category("Education", R.drawable.icon6));
+        categories.add(new Category("Health", R.drawable.icon7));
+        categories.add(new Category("Other", R.drawable.icon8));
 
         CategoryAdapter categoryAdapter = new CategoryAdapter(this, categories);
         binding.categorySpinner.setAdapter(categoryAdapter);
@@ -80,42 +87,34 @@ public class AddExpenseActivity extends AppCompatActivity {
             } else {
                 binding.expenseRadio.setChecked(true);
             }
+
+            deleteBtn.setVisibility(View.VISIBLE); // Show delete button when editing an existing expense
+        } else {
+            deleteBtn.setVisibility(View.GONE); // Hide delete button when adding a new expense
         }
+
+        // Set button click listeners
+        setBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (expenseModel != null) {
+                    updateExpense(); // Update an existing expense
+                } else {
+                    createExpense(); // Create a new expense
+                }
+            }
+        });
+
+        deleteBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                deleteExpense(); // Delete the existing expense
+            }
+        });
 
         // Radio button listeners
         binding.incomeRadio.setOnClickListener(view -> type = "Income");
         binding.expenseRadio.setOnClickListener(view -> type = "Expense");
-
-
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater menuInflater = getMenuInflater();
-        if (expenseModel != null) {
-            menuInflater.inflate(R.menu.update_menu, menu); // Show update menu when updating an existing expense
-        } else {
-            menuInflater.inflate(R.menu.add_menu, menu); // Show add menu when adding a new expense
-        }
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        int id = item.getItemId();
-        if (id == R.id.saveExpense) {
-            if (expenseModel != null) {
-                updateExpense(); // Update an existing expense
-            } else {
-                createExpense(); // Create a new expense
-            }
-            return true;
-        }
-        if (id == R.id.deleteExpense) {
-            deleteExpense(); // Delete an existing expense
-            return true;
-        }
-        return false;
     }
 
     private void deleteExpense() {

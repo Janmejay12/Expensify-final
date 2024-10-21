@@ -20,11 +20,10 @@ public class ExpensesAdapter extends RecyclerView.Adapter <ExpensesAdapter.MyVie
 
     private Context context;
     private OnItemsClick onItemsClick;
-    private List<ExpenseModel> expenseModelList;
+    private List<ExpenseModel> expenseModelList = new ArrayList<>();
 
     public ExpensesAdapter(Context context,OnItemsClick onItemsClick) {
         this.context = context;
-        expenseModelList = new ArrayList<>();
         this.onItemsClick = onItemsClick;
     }
 
@@ -114,4 +113,9 @@ public class ExpensesAdapter extends RecyclerView.Adapter <ExpensesAdapter.MyVie
                 return R.drawable.fastfood; // Default icon if category doesn't match
         }
     }
+    public void setExpenseList(List<ExpenseModel> expenses) {
+        this.expenseModelList = expenses;
+        notifyDataSetChanged(); // Refresh the RecyclerView
+    }
+
 }

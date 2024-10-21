@@ -35,6 +35,9 @@ public class DashBoard2 extends AppCompatActivity {
                     tab.setIcon(R.drawable.calendar);
                     break;
                 case 2:
+                    tab.setIcon(R.drawable.category);
+                    break;
+                case 3:
                     tab.setIcon(R.drawable.more);
                     break;
             }
@@ -55,6 +58,8 @@ public class DashBoard2 extends AppCompatActivity {
                 case 1:
                     return new FragmentMonthlyExpense();
                 case 2:
+                    return new CategoryGridFragment();
+                case 3:
                     return new Fragment_user();
                 default:
                     return new Fragment_dashboard();
@@ -63,7 +68,7 @@ public class DashBoard2 extends AppCompatActivity {
 
         @Override
         public int getItemCount() {
-            return 3; // Number of tabs
+            return 4; // Number of tabs
         }
     }
 }
